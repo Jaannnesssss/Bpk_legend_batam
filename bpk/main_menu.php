@@ -25,7 +25,7 @@
                             <a href="">Pricing</a>
                         </li>
                         <li>
-                            <!-- <a href="">About</a> -->
+                            <a href="">About</a>
                         </li>
                     </ul>
                     <div class="login-signup">
