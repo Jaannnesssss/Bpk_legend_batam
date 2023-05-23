@@ -18,161 +18,110 @@
     <head>
     <title>Home</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <style>
-    body{
-        background-color:white;
-    }
-    h1{
-        font-size:2.1rem;
-        Line-height:1.4;
-        Letter-spacing: 0.5rem;
-        text-align: center;
-        color:black;
-        margin-top:50px;
-    }
-    p{
-        color: #A71E22;
-        padding : 0;
-        margin : 0;
-        line-height : 20px;
-    }
-    .slideshow{
-        width: 70%;
-        height: 400px;
-        position: absolute;
-        left: 50%;
-        top: 48%;
-        transform: translate(-50%, -40%);
-        background-image: url(slidepic1.JPG);
-        background-size: 100% 100%;
-        box-shadow: 1px 2px 10px grey;
-        animation:slider 9s infinite linear;
-        animation-delay: 3s, 200ms;
-    }
-
-    @keyframes slider{
-        0%{background-image: url(slidepic1.JPG);}
-        33%{background-image: url(slidepic2.JPG);}
-        66%{background-image: url(slidepic3.JPG);}
-    }
-
-    .linktop{
-        position: absolute;
-        top: 590px;
-        left: 440px;
-        letter-spacing: 2px;
-    }
-    .linkbot{
-        position: absolute;
-        top: 625px;
-        left: 575px;
-        letter-spacing: 2px;
-    }
-    
-    tr.linktop td{
-        border-top: 0px solid;
-        border-bottom: 0px solid;
-        border-right: 1px solid black;
-        border-left: 1px solid black;
-        padding-left: 4px;
-        padding-right: 2px;
-    }
-
-    tr.linkbot td{
-        border-top: 0px solid;
-        border-bottom: 0px solid;
-        border-right: 1px solid black;
-        border-left: 1px solid black;
-        padding-left: 4px;
-        padding-right: 2px;
-    }
-     .navbar-brand {
-        font-family: "Brush Script MT", cursive;
-     }
-    body {
-        font-family: 'Inter', sans-serif;
-     }
-    </style>
+    <link rel="stylesheet" href="menu_style.css">
     </head>
         <body>
-            <nav class="navbar navbar-expand-lg p-1 border-bottom border-dark" style="font-size: 18px;">
-                <a class="navbar-brand" href="#">
-                    <img src="bpk_logo_2.png" style="width:120px;" alt="">
-                </a>
-
-                <div class="collapse navbar-collapse d-flex justify-content-around" id="navbarSupportedContent">
-                    <div class="">
-                        <a class="nav-link" href="index.php" style="color: black;">HOME<span class="sr-only">(current)</span></a>
-                    </div>
-                    <div class="">
-                        <a class="nav-link" href="index.php" style="color: black;">ABOUT<span class="sr-only">(current)</span></a>
-                    </div>
-                    <div class="">
-                        <a class="nav-link" href="index.php" style="color: black;">MENU<span class="sr-only">(current)</span></a>
-                    </div>
-                    <div class="">
-                        <a class="nav-link" href="index.php" style="color: black;">ORDER ONLINE<span class="sr-only">(current)</span></a>
-                    </div>
-                    <div class="">
-                        <a class="nav-link" href="index.php" style="color: black;"><img src="user_icon.png" style="width:30px;"></img><span style="margin-left: 30px;">LOG IN</span></a>
-                    </div>
+            <nav class="navbar navbar-expand-lg navbar-light">
+                <a class="navbar-brand" href="#"><img src="bpk_logo_2.png" style="width:100px;"/></a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Menus
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#">Foods</a>
+                        <a class="dropdown-item" href="#">Drinks</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Order</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">About-us</a>
+                    </li>
+                    </ul>
+                    <form class="form-inline my-2 my-lg-0">
+                        <a href="#">Login</a>
+                        <span> Or </span>
+                        <a href="#">Register</a>
+                    </form>
                 </div>
             </nav>
-            <div class="container" style="margin-top:5px; margin-bottom: 20px">
-                <div class="row" style="margin-bottom:20px;">
-                    <div class="col text-center">
-                        <h1 style="color:#A71E22;"><b>MENU</b></h1>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col">
-                        <div class="d-flex justify-content-between">
-                            <div>
-                                <img src="IMG_9079.JPG" class="rounded shadow" width="270" height="170" alt="...">
-                                    <p><b>Kidu-Kidu</b></p>
-                                    <p><b>Harga</b></p>
-                                <img>
-                            </div>
-                            <div>
-                                <img src="IMG_9080.JPG" class="rounded shadow" width="270" height="170" alt="...">
-                                    <p><b>Kidu-Kidu</b></p>
-                                    <p><b>Harga</b></p>
-                                <img>
-                            </div><div>
-                                <img src="IMG_9081.JPG" class="rounded shadow" width="270" height="170" alt="...">
-                                    <p><b>Kidu-Kidu</b></p>
-                                    <p><b>Harga</b></p>
-                                <img>
+            <section class="first_section">
+                <div class="container">
+                    <div class="row">
+                        <div class="col">
+                            <div class="d-flex flex-column justify-content-center align-items-center">
+                                <div class="card-container">
+                                    <a href="/" class="hero-image-container">
+                                        <img class="hero-image" src="img_9079.jpg"/>
+                                    </a>
+                                    <main class="main-content">
+                                        <h1><a href="#">Bapi Panggang Karo</a></h1>
+                                        <p>Ikon Makanan Dari Restaurant Kami, Dari Bahan Berkualitas, Dimasak Oleh Chef Terverifikasi</p>
+                                        <div class="flex-row">
+                                        </div>
+                                    </main>
+                                    <div class="card-attribute">
+                                        <p>27.000</p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="row" style="margin-top: 30px;">
-                    <div class="col">
-                        <div class="d-flex justify-content-between">
-                            <div>
-                                <img src="IMG_9085.JPG" class="rounded" width="270" height="170" alt="...">
-                                    <p><b>Kidu-Kidu</b></p>
-                                    <p><b>Harga</b></p>
-                                <img>
-                            </div>
-                            <div>
-                                <img src="IMG_9089.JPG" class="rounded" width="270" height="170" alt="...">
-                                    <p><b>Kidu-Kidu</b></p>
-                                    <p><b>Harga</b></p>
-                                <img>
-                            </div><div>
-                                <img src="IMG_9092.JPG" class="rounded" width="270" height="170" alt="...">
-                                    <p><b>Kidu-Kidu</b></p>
-                                    <p><b>Harga</b></p>
-                                <img>
-                            </div>
+            </section>
+            <footer id="fh5co-footer" role="contentinfo" class="fh5co-section">
+                <div class="container">
+                    <div class="row row-pb-md">
+                        <div class="col-md-4 fh5co-widget">
+                            <h4>Tasty</h4>
+                            <p>Facilis ipsum reprehenderit nemo molestias. Aut cum mollitia reprehenderit. Eos cumque dicta adipisci architecto culpa amet.</p>
                         </div>
+                        <div class="col-md-2 col-md-push-1 fh5co-widget">
+                            <h4>Links</h4>
+                            <ul class="fh5co-footer-links">
+                                <li><a href="#">Home</a></li>
+                                <li><a href="#">About</a></li>
+                                <li><a href="#">Menu</a></li>
+                                <li><a href="#">Gallery</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="col-md-2 col-md-push-1 fh5co-widget">
+                            <h4>Categories</h4>
+                            <ul class="fh5co-footer-links">
+                                <li><a href="#">Landing Page</a></li>
+                                <li><a href="#">Real Estate</a></li>
+                                <li><a href="#">Personal</a></li>
+                                <li><a href="#">Business</a></li>
+                                <li><a href="#">e-Commerce</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="col-md-4 col-md-push-1 fh5co-widget">
+                            <h4>Contact Information</h4>
+                            <ul class="fh5co-footer-links">
+                                <li>198 West 21th Street, <br> Suite 721 New York NY 10016</li>
+                                <li><a href="tel://1234567920">+ 1235 2355 98</a></li>
+                            </ul>
+                            <ul class="fh5co-footer-links">
+                                <li>198 West 21th Street, <br> Suite 721 New York NY 10016</li>
+                                <li><a href="tel://1234567920">+ 1235 2355 98</a></li>
+                            </ul>
+                        </div>
+
                     </div>
                 </div>
-            </div>          
+            </footer>
+            <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
         </body>
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </html>
