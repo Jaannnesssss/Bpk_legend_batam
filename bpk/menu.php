@@ -1,55 +1,75 @@
 <?php
-// session_start();
+    include_once('connection_db.php');
+    session_start();
 
-
-// if(!isset($_SESSION['login']))
-// {
-//     header("Location: login.php");
-// }
-
-// if(isset($_POST['btnlogout']))
-// {
-//     session_destroy();
-//     echo "<script type='text/javascript'>alert('Berhasil Log Out'); window.location = 'login.php';</script>";
-// }
+    if(isset($_POST['btnlogout']))
+    {
+        session_destroy();
+        echo "<script type='text/javascript'>window.location = 'main_menu.php';</script>";
+    }
 ?>
 
 <html>
     <head>
     <title>Home</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" href="menu_style.css">
+    <link rel="stylesheet" href="CSS/menu_style.css">
     </head>
         <body>
             <nav class="navbar navbar-expand-lg navbar-light">
-                <a class="navbar-brand" href="#"><img src="bpk_logo_2.png" style="width:100px;"/></a>
+                <a class="navbar-brand" href="#"><img src="IMG/bpk_logo_2.png" style="width:100px;"/></a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="main_menu.php">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="menu.php">Menu</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Menus
+                        Order
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#">Foods</a>
-                        <a class="dropdown-item" href="#">Drinks</a>
+                        <a class="dropdown-item" href="#">Whatsapp</a>
+                        <a class="dropdown-item" href="#">GoFood</a>
+                        <a class="dropdown-item" href="#">GrabFood</a>
+                        <a class="dropdown-item" href="#">ShoppeFood</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Order</a>
+                        <a class="nav-link" href="about_us.php">About-us</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">About-us</a>
-                    </li>
+                    <?php
+                        if($_SESSION){
+                            if($_SESSION['access'] === 'admin'){
+                                echo"<li class='nav-item'>";
+                                echo"<a class='nav-link' href='admin_config.php'>Admin Configuration</a>";
+                                echo"</li>";
+                            }
+                        }
+                    ?>
                     </ul>
-                    <form class="form-inline my-2 my-lg-0">
-                        <a href="#">Login</a>
-                        <span> Or </span>
-                        <a href="#">Register</a>
+                    <form class="form-inline my-2 my-lg-0" method="POST" action="">
+                        <?php
+                            if($_SESSION){
+                                if($_SESSION['login'] === FALSE){
+                                    echo "<a href='login.php'>Login</a>";
+                                    echo "<span> Or </span>";
+                                    echo "<a href='register.php'>Register</a>";
+                                }
+                                else{
+                                    echo "<button name='btnlogout' type='submit' style='letter-spacing: 3px;padding:10px;background-color:white;color:black;font-size:24px;border-color:white;border:none;'>Log out</button>";
+                                }
+                            }
+                            else{
+                                echo "<a href='login.php'>Login</a>";
+                                echo "<span> Or </span>";
+                                echo "<a href='register.php'>Register</a>";
+                            }
+                        ?>
                     </form>
                 </div>
             </nav>
@@ -58,9 +78,38 @@
                     <div class="row">
                         <div class="col">
                             <div class="d-flex flex-column justify-content-center align-items-center">
-                                <div class="card-container">
+                                <?php
+                                    $selectcaraousel_image = $mysqli->query("SELECT * FROM menu");
+                                    if($selectcaraousel_image ->num_rows> 0){
+                                        while($row = $selectcaraousel_image -> fetch_assoc()) {
+                                            $id = $row['menu_id'];
+                                            $image = $row['image']; 
+                                            $menu_name = $row['menu_name'];
+                                            $prices = $row['prices'];
+                                            $description = $row['description'];
+                                            echo 
+                                            "
+                                            <div class='card-container'>
+                                                <a href='menu_selected.php?id=$id&halaman=1' class='hero-image-container'>
+                                                    <img class='hero-image' src='$image'/>
+                                                </a>
+                                                <main class='main-content'>
+                                                    <h1><a href='menu_selected.php?id=$id&halaman=1'>$menu_name</a></h1>
+                                                    <p class='wrap'>$description</p>
+                                                    <div class='flex-row'>
+                                                    </div>
+                                                </main>
+                                                <div class='card-attribute'>
+                                                    <p style='font-size:32px;'>$prices</p>
+                                                </div>
+                                            </div>
+                                            ";
+                                        }
+                                    }
+                                ?>
+                                <!-- <div class="card-container">
                                     <a href="/" class="hero-image-container">
-                                        <img class="hero-image" src="img_9079.jpg"/>
+                                        <img class="hero-image" src="IMG/img_9079.jpg"/>
                                     </a>
                                     <main class="main-content">
                                         <h1><a href="#">Bapi Panggang Karo</a></h1>
@@ -72,6 +121,34 @@
                                         <p>27.000</p>
                                     </div>
                                 </div>
+                                <div class="card-container">
+                                    <a href="/" class="hero-image-container">
+                                        <img class="hero-image" src="IMG/img_9079.jpg"/>
+                                    </a>
+                                    <main class="main-content">
+                                        <h1><a href="#">Bapi Panggang Karo</a></h1>
+                                        <p>Ikon Makanan Dari Restaurant Kami, Dari Bahan Berkualitas, Dimasak Oleh Chef Terverifikasi</p>
+                                        <div class="flex-row">
+                                        </div>
+                                    </main>
+                                    <div class="card-attribute">
+                                        <p>27.000</p>
+                                    </div>
+                                </div>
+                                <div class="card-container">
+                                    <a href="/" class="hero-image-container">
+                                        <img class="hero-image" src="IMG/img_9079.jpg"/>
+                                    </a>
+                                    <main class="main-content">
+                                        <h1><a href="#">Bapi Panggang Karo</a></h1>
+                                        <p>Ikon Makanan Dari Restaurant Kami, Dari Bahan Berkualitas, Dimasak Oleh Chef Terverifikasi</p>
+                                        <div class="flex-row">
+                                        </div>
+                                    </main>
+                                    <div class="card-attribute">
+                                        <p>27.000</p>
+                                    </div>
+                                </div> -->
                             </div>
                         </div>
                     </div>

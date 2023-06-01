@@ -1,17 +1,4 @@
 <?php
-// session_start();
-
-
-// if(!isset($_SESSION['login']))
-// {
-//     header("Location: login.php");
-// }
-
-// if(isset($_POST['btnlogout']))
-// {
-//     session_destroy();
-//     echo "<script type='text/javascript'>alert('Berhasil Log Out'); window.location = 'login.php';</script>";
-// }
 ?>
 
 <html>
@@ -183,7 +170,7 @@
     }
     </style>
     </head>
-        <body style="background: url('menu_background.jpg') no-repeat center center fixed;-webkit-background-size: cover;-moz-background-size: cover;-o-background-size: cover;background-size: cover;">
+        <body style="background: url('IMG/menu_background.jpg') no-repeat center center fixed;-webkit-background-size: cover;-moz-background-size: cover;-o-background-size: cover;background-size: cover;">
             <!-- <nav class="navbar navbar-expand-lg p-2" style="font-size: 18px;">
                 <a class="navbar-brand" href="#">
                     <img src="bpk_logo_2.png" style="width:120px;" alt="">

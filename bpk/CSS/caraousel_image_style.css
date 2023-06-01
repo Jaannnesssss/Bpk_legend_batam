@@ -1,0 +1,25 @@
+*{
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+}
+
+nav div form a{
+    font-size: 18px;
+    letter-spacing: 3px;
+    text-decoration: none;
+    color: black;
+}
+nav div form span{
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+section.first_section a{
+    background-color: black;
+    color: white;
+}
+section.first_section a:hover{
+    background-color: black;
+    color: white;
+}
