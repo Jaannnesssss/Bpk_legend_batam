@@ -1,0 +1,17 @@
+create database bpk_bd;
+use bpk_bd;
+
+
+create table caraousel_image(caraousel_id varchar(5) PRIMARY KEY NOT NULL, 
+image char(100), status Boolean);
+
+create table menu(menu_id varchar(5) PRIMARY KEY NOT NULL, 
+menu_name varchar(25), description char(200), prices int(7), image char(100));
+
+create table user (user_id varchar(5) PRIMARY KEY NOT NULL, 
+email varchar(50), user_password varchar(16), user_name varchar(50), access varchar(5));
+
+create table menu_review(review_id varchar(5) PRIMARY KEY NOT NULL, 
+review_desc varchar(200), date date, user_id varchar(5),
+CONSTRAINT FK_menu_review_userr_id_user FOREIGN KEY(user_id) references user(user_id));
+
